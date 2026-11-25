@@ -1,0 +1,34 @@
+# ── Secrets & local configuration ─────────────────────────────────────────────
+# .env holds the real Google OAuth client ID/secret. Keep the example, not the file.
+.env
+.env.*
+!.env.example
+
+# ── Databases ──────────────────────────────────────────────────────────────────
+# db/agenda.sqlite3 stores live OAuth refresh tokens, account emails, your
+# selected calendar IDs, and cached (personal) event data. Never commit it.
+db/
+*.sqlite
+*.sqlite3
+*.sqlite3-*
+*.db
+
+# ── Python ──────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+
+# ── Virtualenv (already self-ignoring, but make it explicit) ───────────────────
+venv/
+.venv/
+
+# ── OS / editor noise ──────────────────────────────────────────────────────────
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# ── Local Code workspace artifacts (never commit) ─────────────────────────────
+.localc/

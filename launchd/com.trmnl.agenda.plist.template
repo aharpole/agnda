@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.trmnl.agenda</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <!-- full path to this repo's start.sh -->
+        <string>__PROJECT_DIR__/start.sh</string>
+    </array>
+
+    <!-- launchd's default PATH is the minimal /usr/bin:/bin, which can shadow a
+         Homebrew python3 with Apple's system 3.9. Point PATH at your real Python
+         first so start.sh's venv rebuild works. Safe to delete this block if the
+         venv already exists and you never rebuild it. -->
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+    </dict>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>KeepAlive</key>
+    <true/>
+
+    <key>ThrottleInterval</key>
+    <integer>10</integer>
+
+    <key>StandardOutPath</key>
+    <string>__HOME__/Library/Logs/trmnl-agenda.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>__HOME__/Library/Logs/trmnl-agenda.log</string>
+</dict>
+</plist>

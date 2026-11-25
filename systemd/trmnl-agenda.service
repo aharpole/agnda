@@ -1,0 +1,23 @@
+[Unit]
+Description=TRMNL Agenda — local Flask companion app
+# The app is a per-user local service; it needs network to reach Google.
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+# start.sh sources .env, (re)builds ./venv if needed, then runs app.py.
+# Fill __PROJECT_DIR__ with the absolute path to this repo.
+WorkingDirectory=__PROJECT_DIR__
+ExecStart=/bin/bash __PROJECT_DIR__/start.sh
+Restart=on-failure
+RestartSec=10
+# start.sh needs a Python 3.10+ interpreter. On Ubuntu the system python3 is
+# fine; if you use a Homebrew python3 on macOS, point PATH at it first so the
+# venv rebuild works. Safe to delete this block if the venv already exists.
+Environment=PATH=/usr/local/bin:/usr/bin:/bin
+
+[Install]
+# Installed as a per-user service (see README). For a system-wide service,
+# change this to WantedBy=multi-user.target.
+WantedBy=default.target
