@@ -5,6 +5,9 @@ daily agenda for a [TRMNL](https://trmnl.io/) e-ink display. It runs on your own
 machine — nothing is pushed to a shared host — and serves a JSON endpoint that a
 TRMNL device polls to render `terminus_template/agenda.liquid`.
 
+<img width="480" height="360" alt="a photo of a Kindle showing AGNDA" src="https://github.com/user-attachments/assets/c5fe0352-9114-4c08-8a12-0c521af8ecb7" />
+
+
 ## Quick Start
 
 The full, step-by-step install guide lives in **[SETUP.md](./SETUP.md)**. The
